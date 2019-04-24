@@ -1,0 +1,52 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 30vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #000000;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.Lets-connect {
+  color: #05aa4a;
+  text-decoration: none;
+}
+
+.Impact-link {
+  color: #701f1f;
+  text-decoration: none;
+}
+
+.App-link {
+  color: #61dafb;
+  text-decoration: none;
+}
+
+.ButtonContainer {
+  margin-top: 50px;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+p {
+  margin: 0 auto;
+}
