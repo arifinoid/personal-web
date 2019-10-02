@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <h1>Hi, I'm Rohmad Arifin</h1>
+        <h1>Hi, I&apos;m Rohmad Arifin</h1>
         <p>
           <span>
             <ReactTypist />
