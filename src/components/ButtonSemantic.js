@@ -14,17 +14,33 @@ const ButtonContainer = styled.div`
 
 const ButtonExampleCircularSocial = () => (
   <ButtonContainer>
-    <a href="http://facebook.com/h4ck3r0hm4d">
+    <a
+      href="http://facebook.com/h4ck3r0hm4d"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <Button circular color="facebook" icon="facebook" />
     </a>
-    <a href="http://twitter.com/arifinoid">
+    <a
+      href="http://twitter.com/arifinoid"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <Button circular color="twitter" icon="twitter" />
     </a>
-    <a href="https://www.linkedin.com/in/rohmadarifin/">
+    <a
+      href="https://linkedin.com/in/rohmadarifin/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <Button circular color="linkedin" icon="linkedin" />
     </a>
-    <a href="mailto:rohmadarifin007@gmail.com">
-      <Button circular color="google plus" icon="google plus" />
+    <a
+      href="https://github.com/arifinoid"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <Button circular color="black" icon="github" />
     </a>
   </ButtonContainer>
 );
