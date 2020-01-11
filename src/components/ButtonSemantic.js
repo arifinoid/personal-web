@@ -10,6 +10,11 @@ const ButtonContainer = styled.div`
       margin-right: 0.5rem;
     }
   }
+
+  @media (max-width: 767px) {
+    display: flex;
+    justify-content: center;
+  }
 `;
 
 const ButtonExampleCircularSocial = () => (
