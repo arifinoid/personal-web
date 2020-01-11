@@ -1,20 +1,22 @@
+* {
+  color: #fff;
+}
+
 .App {
   margin: 0;
   height: 100vh;
-  justify-items: center;
-  align-items: center;
+  // display: flex;
+  // flex-direction: column;
 }
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 5vmin;
+  height: 10vmin;
   pointer-events: none;
   fill: red;
 }
 
 .App-header {
-  background-color: #000000;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,4 +31,37 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+footer,
+.text {
+  font-family: "Josefin Sans", sans-serif;
+
+  @media (max-width: 767px) {
+    text-align: justify;
+  }
+}
+
+.text-hello-world {
+  font-size: 5rem;
+  font-family: "Lily Script One";
+
+  @media (max-width: 767px) {
+    font-size: 3rem;
+  }
+}
+
+main {
+  margin-bottom: auto;
+  flex-grow: 1;
+}
+
+footer {
+  width: 100%;
+  font-size: 1rem;
+  margin: 10px auto;
+}
+
+footer > p {
+  text-align: center;
 }
