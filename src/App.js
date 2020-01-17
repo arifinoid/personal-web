@@ -15,7 +15,7 @@ const App = () => (
     </main>
 
     <footer>
-      <p className="footer">Rohmad Arifin &copy; 2020</p>
+      <p className="footer">Rohmad Arifin &copy; {new Date().getFullYear()}</p>
     </footer>
   </div>
 );

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import logo from "../logo.svg";
-import ButtonSemantic from "./ButtonSemantic";
+import Links from "./Links";
 
 const Container = styled.div`
   margin: 0 auto;
@@ -23,7 +23,7 @@ const Clip = () => (
       Natural-born Lifetime learner. Let's connect!
     </p>
 
-    <ButtonSemantic />
+    <Links />
   </Container>
 );
 
