@@ -1,12 +1,6 @@
-* {
-  color: #fff;
-}
-
 .App {
   margin: 0;
   height: 100vh;
-  // display: flex;
-  // flex-direction: column;
 }
 
 .App-logo {
@@ -36,6 +30,7 @@
 footer,
 .text {
   font-family: "Josefin Sans", sans-serif;
+  color: #fff;
 
   @media (max-width: 767px) {
     text-align: justify;
@@ -45,6 +40,7 @@ footer,
 .text-hello-world {
   font-size: 5rem;
   font-family: "Lily Script One";
+  color: #fff;
 
   @media (max-width: 767px) {
     font-size: 3rem;
