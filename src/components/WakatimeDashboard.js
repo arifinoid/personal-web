@@ -4,7 +4,7 @@ import styled from "styled-components";
 const Container = styled.div`
   display: grid;
   grid-template-columns: auto auto;
-  padding: 5rem;
+  padding: 1rem 5rem;
 
   @media (max-width: 1024px) {
     display: flex;
