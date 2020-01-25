@@ -1,8 +1,10 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 
 import "./App.scss";
 import Clip from "./components/Clip";
-import WakatimeDashboard from "./components/WakatimeDashboard";
+import Spinner, { Container } from "./components/Spinner";
+
+const WakatimeDashboard = lazy(() => import("./components/WakatimeDashboard"));
 
 const App = () => (
   <div className="App">
@@ -10,9 +12,15 @@ const App = () => (
       <Clip />
     </header>
 
-    <main>
+    <Suspense
+      fallback={
+        <Container>
+          <Spinner />
+        </Container>
+      }
+    >
       <WakatimeDashboard />
-    </main>
+    </Suspense>
 
     <footer>
       <p className="footer">Rohmad Arifin &copy; {new Date().getFullYear()}</p>
