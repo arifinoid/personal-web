@@ -36,17 +36,23 @@ const Link = styled.a`
     color: #000;
     background: #fff;
   }
+
+  & > * {
+    display: none;
+  }
 `;
 
 const ButtonComponent = ({ link, icon }) => (
-  <Button>
+  <Button aria-label="Center Align">
     <Link
       href={link}
       target="_blank"
       rel="noopener noreferrer"
       aria-hidden="true"
       className={`fa ${icon}`}
-    />
+    >
+      <span aria-hidden="true">Button Label</span>
+    </Link>
   </Button>
 );
 
