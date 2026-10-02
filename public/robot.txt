@@ -1,4 +1,0 @@
-# https://www.robotstxt.org/robotstxt.html
-# Group 1
-User-agent: *
-Allow: /
