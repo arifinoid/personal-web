@@ -26,7 +26,8 @@
     "@types/react-dom": "^19",
     "oxfmt": "^0.70.0",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wrangler": "^4.147.0"
   },
   "packageManager": "bun@1.4.2",
   "ignoreScripts": [
