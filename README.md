@@ -1,70 +1,49 @@
-# Project-React
+# arifinoid.dev
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Personal portfolio of [Rohmad Arifin](https://github.com/arifinoid) — fullstack software
+engineer. Neovim-inspired single-page shell with command palette, theme switching, and a
+fully static build.
 
-## Available Scripts
+## Stack
 
-In the project directory, you can run:
+- [Next.js](https://nextjs.org) 16 (App Router, Turbopack) + React 19 + TypeScript (strict)
+- [Tailwind CSS](https://tailwindcss.com) v4 + custom design tokens on CSS variables
+- [lucide-react](https://lucide.dev) icons
+- Fonts self-hosted at build time via `next/font` (Manrope, IBM Plex Mono)
+- [Bun](https://bun.sh) package manager, [Nix](https://nixos.org) flake dev shell
 
-### `npm start`
+## Development
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```bash
+nix develop          # optional: reproducible dev shell with pre-commit hooks
+bun install
+bun run dev          # http://localhost:3000
+```
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Commands
 
-### `npm test`
+| Command              | Description                          |
+| -------------------- | ------------------------------------ |
+| `bun run build`      | Production build (static prerender)  |
+| `bun run start`      | Serve the production build           |
+| `bun run typecheck`  | `tsc --noEmit`                       |
+| `bun run lint`       | oxlint                               |
+| `bun run format`     | oxfmt (write)                        |
+| `bun run format:check` | oxfmt (check)                      |
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+On the site itself: `⌘K` / `Ctrl+K` opens the command palette; `:e /projects` navigates,
+`:theme day` / `:theme moon` switch themes (persisted in `localStorage`).
 
-### `npm run build`
+## Structure
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+app/                  # routes: /, /about, /blog, /explore, /projects
+app/globals.css       # design tokens + component classes
+components/shell/     # Neovim-style app shell (topbar, rail, command bar)
+components/brand-icons.tsx
+lib/site.ts           # single source of truth for name, links, email
+```
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+## Deployment
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Static export via `next build` — deploy to any Node host or Vercel as-is.
