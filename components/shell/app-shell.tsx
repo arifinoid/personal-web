@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import { match, P } from "ts-pattern";
 
 import { CommandBar } from "@/components/shell/command-bar";
 import { ExplorerRail } from "@/components/shell/explorer-rail";
@@ -9,8 +10,30 @@ import { navItems } from "@/components/shell/nav";
 import { StatusLine } from "@/components/shell/status-line";
 import { Topbar } from "@/components/shell/topbar";
 import { useTheme } from "@/components/shell/use-theme";
+import type { ThemeMode } from "@/components/shell/types";
 
 const READY_STATUS = "ready — press ⌘K for commands";
+
+type Command =
+  | { action: "open"; route: string }
+  | { action: "no-buffer"; route: string }
+  | { action: "theme"; mode: ThemeMode }
+  | { action: "help" }
+  | { action: "unknown"; raw: string };
+
+const parseCommand = (command: string): Command => {
+  const normalized = command.toLowerCase().trim();
+  const arg = normalized.match(/^(?::e|:edit)\s+(\S+)$/)?.[1];
+  const route = arg && (arg.startsWith("/") ? arg : `/${arg}`);
+
+  if (route && navItems.some((item) => item.href === route)) return { action: "open", route };
+  if (route) return { action: "no-buffer", route };
+  if (normalized === ":theme day") return { action: "theme", mode: "day" };
+  if (normalized === ":theme moon") return { action: "theme", mode: "moon" };
+  if (normalized === ":help") return { action: "help" };
+  if (normalized === ":home") return { action: "open", route: "/" };
+  return { action: "unknown", raw: command };
+};
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -25,31 +48,25 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   );
 
   const onCommand = (command: string) => {
-    const normalized = command.toLowerCase().trim();
-    const routeMatch = normalized.match(/(?:^:e\s+|^:edit\s+)(\S+)/);
-    if (routeMatch) {
-      const route = routeMatch[1].startsWith("/") ? routeMatch[1] : `/${routeMatch[1]}`;
-      const known = navItems.some((item) => item.href === route);
-      if (known) {
+    match(parseCommand(command))
+      .with({ action: "open", route: P.select() }, (route) => {
         router.push(route);
         setCommandStatus(`opened ${route}`);
-      } else {
+      })
+      .with({ action: "no-buffer", route: P.select() }, (route) => {
         setCommandStatus(`no buffer: ${route}`);
-      }
-    } else if (normalized === ":theme day") {
-      setTheme("day");
-      setCommandStatus("theme set to day");
-    } else if (normalized === ":theme moon") {
-      setTheme("moon");
-      setCommandStatus("theme set to moon");
-    } else if (normalized === ":help") {
-      setCommandStatus("try :e /projects, :theme day, or ⌘K");
-    } else if ([":home", ":e /"].includes(normalized)) {
-      router.push("/");
-      setCommandStatus("opened /");
-    } else {
-      setCommandStatus(`unknown command: ${command}`);
-    }
+      })
+      .with({ action: "theme", mode: P.select() }, (mode) => {
+        setTheme(mode);
+        setCommandStatus(`theme set to ${mode}`);
+      })
+      .with({ action: "help" }, () => {
+        setCommandStatus("try :e /projects, :theme day, or ⌘K");
+      })
+      .with({ action: "unknown", raw: P.select() }, (raw) => {
+        setCommandStatus(`unknown command: ${raw}`);
+      })
+      .exhaustive();
   };
 
   return (
