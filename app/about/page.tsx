@@ -56,10 +56,6 @@ export default function About() {
             Outside the editor, I tinker with <strong>Nix and Neovim</strong>, keep my dotfiles
             tidy, and believe a good development environment is half the product.
           </p>
-          <p className="timeline-copy icon-copy">
-            <GraduationCap size={14} className="icon-accent" />
-            B.ASc. Fisheries Sciences &amp; Technologies — University of Brawijaya (2016)
-          </p>
           <div className="contact-line">
             <a href={`mailto:${site.email}`}>
               <AtSign size={13} className="icon-inline" />
