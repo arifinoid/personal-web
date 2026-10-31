@@ -1,16 +1,20 @@
-name: Deploy
+name: CI
 
 on:
+  pull_request:
   push:
     branches: [main]
   workflow_dispatch:
 
 concurrency:
-  group: pages-${{ github.ref }}
+  group: ci-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
-  deploy:
+  verify:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -26,6 +30,24 @@ jobs:
       - run: bun run lint
       - run: bun run format:check
       - run: bun run build
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: out
+          path: out
+          retention-days: 1
+
+  deploy:
+    needs: verify
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: out
+          path: out
 
       - uses: cloudflare/wrangler-action@v3
         with:
