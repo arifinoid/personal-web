@@ -1,4 +1,4 @@
-export const siteUrl = new URL("https://arifinoid.dev");
+export const siteUrl = new URL("https://arifinoid.web.id");
 
 export const site = {
   name: "Rohmad Arifin",

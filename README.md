@@ -1,4 +1,4 @@
-# arifinoid.dev
+# arifinoid.web.id
 
 Personal portfolio of [Rohmad Arifin](https://github.com/arifinoid) — fullstack software
 engineer. Neovim-inspired single-page shell with command palette, theme switching, and a
