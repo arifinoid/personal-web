@@ -1,8 +1,11 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight, Blocks, CodeXml, FolderKanban, LockKeyhole } from "lucide-react";
 
 import { GithubIcon } from "@/components/brand-icons";
 import { site } from "@/lib/site";
+
+export const metadata: Metadata = { alternates: { canonical: "/projects/" } };
 
 const projects = [
   {

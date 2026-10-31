@@ -1,5 +1,8 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight, Bookmark, Clock3 } from "lucide-react";
+
+export const metadata: Metadata = { alternates: { canonical: "/blog/" } };
 
 const notes = [
   {

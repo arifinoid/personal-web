@@ -1,5 +1,8 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight, Brackets, Eye, MousePointer2, Radio, Waypoints } from "lucide-react";
+
+export const metadata: Metadata = { alternates: { canonical: "/explore/" } };
 
 const timeline = [
   {

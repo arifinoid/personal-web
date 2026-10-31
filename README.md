@@ -46,4 +46,5 @@ lib/site.ts           # single source of truth for name, links, email
 
 ## Deployment
 
-Static export via `next build` — deploy to any Node host or Vercel as-is.
+Static export via `next build` (`out/`). GitHub Actions runs typecheck, lint, format and build
+on every pull request, then deploys `out/` to Cloudflare Pages on `main`.
