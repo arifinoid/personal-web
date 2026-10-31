@@ -1,7 +1,10 @@
+import type { Metadata } from "next";
 import Image from "next/image";
-import { ArrowUpRight, AtSign, Coffee, GraduationCap, MapPin } from "lucide-react";
+import { ArrowUpRight, AtSign, Coffee, MapPin } from "lucide-react";
 
 import { site } from "@/lib/site";
+
+export const metadata: Metadata = { alternates: { canonical: "/about/" } };
 
 export default function About() {
   return (

@@ -1,4 +1,4 @@
-# arifinoid.dev
+# arifinoid.web.id
 
 Personal portfolio of [Rohmad Arifin](https://github.com/arifinoid) — fullstack software
 engineer. Neovim-inspired single-page shell with command palette, theme switching, and a
@@ -46,4 +46,10 @@ lib/site.ts           # single source of truth for name, links, email
 
 ## Deployment
 
-Static export via `next build` — deploy to any Node host or Vercel as-is.
+Static export via `next build` (`out/`). GitHub Actions runs typecheck, lint, format and build
+on every pull request. On `main` the same artifact is deployed to two targets:
+
+- **Cloudflare Pages** — `wrangler pages deploy` (secrets `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`).
+- **VPS (arifinoid.web.id)** — `rsync` into `/var/www/arifinoid/releases/<sha>`, then an atomic
+  symlink swap of `/var/www/arifinoid/current`, which nginx serves as a plain static root
+  (secrets `VPS_HOST`, `VPS_SSH_KEY`). Rollback is `ln -sfn` to an older release.

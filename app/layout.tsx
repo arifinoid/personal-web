@@ -26,7 +26,6 @@ export const metadata: Metadata = {
   title: "Rohmad Arifin — Fullstack Software Engineer",
   description:
     "Rohmad Arifin (arifinoid) — fullstack software engineer with 7+ years building scalable systems, developer tools, and cross-platform solutions.",
-  alternates: { canonical: "/" },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "64x64 32x24 16", type: "image/x-icon" },

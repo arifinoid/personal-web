@@ -4,7 +4,8 @@ import type { MetadataRoute } from "next";
 
 import { siteUrl } from "@/lib/site";
 
-const routes = ["", "/explore", "/projects", "/blog", "/about"];
+// Trailing slashes keep sitemap entries identical to the emitted page URLs.
+const routes = ["", "/explore/", "/projects/", "/blog/", "/about/"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
