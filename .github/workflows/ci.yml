@@ -49,7 +49,7 @@ jobs:
         with:
           bun-version: 1.4.2
 
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: out
           path: out
@@ -65,7 +65,7 @@ jobs:
     if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: out
           path: out
