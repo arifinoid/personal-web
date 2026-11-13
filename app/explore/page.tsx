@@ -57,8 +57,8 @@ export default function Explore() {
           <em>around.</em>
         </h1>
         <p className="page-intro">
-          Seven years across logistics, insurtech, agritech, fintech, and developer platforms — from
-          React Native apps to micro-frontend payment systems.
+          A seasoned career across logistics, insurtech, agritech, fintech, and developer platforms
+          — from React Native apps to micro-frontend payment systems.
         </p>
       </div>
       <div className="experience-grid">

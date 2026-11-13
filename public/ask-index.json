@@ -1,0 +1,32 @@
+[
+  {
+    "id": "home",
+    "title": "Home",
+    "url": "/",
+    "content": "I\u2019m Rohmad Arifin, a fullstack software engineer with seasoned experience building scalable systems, developer tools, and cross-platform solutions. I lead a team of 11 engineers at Alto Network, building internal platforms for Indonesia's payment switching infrastructure \u2014 one of the country's four licensed switching companies \u2014 holding a 99.99% SLA and processing 27 million records per day. Before that: reliability work at AIA Indonesia, developer platforms at eFishery, integrations at Jubelio, and mobile apps at SiCepat Express. Outside the editor, I tinker with Nix and Neovim, keep my dotfiles tidy, and believe a good development environment is half the product. Contact: rohmadarifin007@gmail.com \u2014 github.com/arifinoid."
+  },
+  {
+    "id": "about",
+    "title": "About",
+    "url": "/about/",
+    "content": "Hello, I\u2019m Rohmad \u2014 a fullstack software engineer based in Kediri, Indonesia, working wherever there is a good problem and a reliable internet connection. I have seasoned experience in designing, developing, and launching scalable systems. My work sits between product engineering and platform thinking: optimizing processes, reducing development cycles, and delivering cross-platform solutions from concept to execution. Lately I lead a team of 11 engineers at Alto Network, building internal platforms for Indonesia's payment switching infrastructure \u2014 one of the country's four licensed switching companies and part of the National Payment Gateway \u2014 holding a 99.99% SLA. Before that: reliability work at AIA Indonesia, developer platforms at eFishery, integrations at Jubelio, and mobile apps at SiCepat Express. Outside the editor, I tinker with Nix and Neovim and keep my dotfiles tidy. Email: rohmadarifin007@gmail.com. GitHub: github.com/arifinoid. LinkedIn: linkedin.com/in/rohmadarifin/."
+  },
+  {
+    "id": "blog",
+    "title": "Blog",
+    "url": "/blog/",
+    "content": "Notes from the buffer \u2014 dispatches on engineering, developer experience, and systems that stay calm under load. First post: Why I blog (again) \u2014 notes from seasoned experience of shipping, what worked, what broke, and the quiet art of building tools people want to use twice. More notes land as they get written."
+  },
+  {
+    "id": "explore",
+    "title": "Experience",
+    "url": "/explore/",
+    "content": "A seasoned career across logistics, insurtech, agritech, fintech, and developer platforms. Fullstack associate manager at Alto Network (2026 \u2014 now): leading 11 engineers on Scrum, enforcing SDLC best practices, building internal platforms for Indonesia's payment switching infrastructure \u2014 99.99% SLA, 27M records/day. Senior software engineer at AIA Indonesia (2024 \u2014 26): hardened reliability on AKS, refactored legacy codebases, cut agent recruitment page load from 48 seconds to 1 second. Software engineer, platform at eFishery (2021 \u2014 24): built developer tools, OneFish DLS, a unified login system, and a JS auth SDK; introduced Nix flakes for faster onboarding. Full-stack engineer at Jubelio (2020 \u2014 21): integrated marketplaces, couriers, and payment gateways; built an integration factory on Azure Functions. React Native developer at SiCepat Express (2019 \u2014 20): shipped SiCepat App, SiGesit, and SiCepat Absensi. Assistant tech mentor at Impact Byte (2019). Toolbox: TypeScript, React, Next.js, Node, Go, Python, PostgreSQL, SQL, NoSQL, React Native, Flutter, Kubernetes, Azure, GraphQL."
+  },
+  {
+    "id": "projects",
+    "title": "Projects",
+    "url": "/projects/",
+    "content": "Payment switching internal platform (Alto Network, 2026): internal platform for Indonesia's payment switching infrastructure \u2014 one of the country's four licensed switching companies \u2014 with high-volume data viewing and download, 27 million records per day, straight from core systems. Tech: Java Spring Boot, React, PostgreSQL. OneFish DLS (eFishery, 2024): platform tool that streamlined core processes and eliminated key development pain points for faster feature delivery across teams. Tech: developer tools, internal platform. Unified login system (eFishery, 2023): architecture and JS SDK for authentication services across multiple platforms, cutting feature delivery timelines and standardizing security protocols. Tech: auth, JavaScript SDK, security. Integration factory (Jubelio, 2021): factory pattern for third-party integrations \u2014 marketplaces, couriers, payment gateways \u2014 that cut integration development time significantly. Tech: integrations, Azure Functions. More experiments on GitHub at github.com/arifinoid."
+  }
+]

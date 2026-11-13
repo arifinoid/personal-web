@@ -64,8 +64,8 @@ export default function Projects() {
           <em>made.</em>
         </h1>
         <p className="page-intro">
-          Systems, platforms, and tools built across seven years — each one started as a problem
-          worth solving.
+          Systems, platforms, and tools built with seasoned experience — each one started as a
+          problem worth solving.
         </p>
       </div>
       <div className="project-list">

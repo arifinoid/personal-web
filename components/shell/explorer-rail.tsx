@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Keyboard } from "lucide-react";
 
@@ -7,7 +8,41 @@ import { GithubIcon, LinkedinIcon } from "@/components/brand-icons";
 import { navItems } from "@/components/shell/nav";
 import { site } from "@/lib/site";
 
+const ASK_API_URL =
+  typeof process !== "undefined" && process.env.NEXT_PUBLIC_ASK_API_URL
+    ? process.env.NEXT_PUBLIC_ASK_API_URL
+    : "http://localhost:8080";
+
 export function ExplorerRail({ currentPath }: { currentPath: string }) {
+  const [apiStatus, setApiStatus] = useState<"online" | "offline" | "unknown">("unknown");
+
+  useEffect(() => {
+    let cancelled = false;
+    const check = async () => {
+      try {
+        const res = await fetch(`${ASK_API_URL}/health`, { signal: AbortSignal.timeout(3000) });
+        if (!cancelled) setApiStatus(res.ok ? "online" : "offline");
+      } catch {
+        if (!cancelled) setApiStatus("offline");
+      }
+    };
+    check();
+    const timer = setInterval(check, 15000);
+    return () => {
+      cancelled = true;
+      clearInterval(timer);
+    };
+  }, []);
+
+  const dotColor =
+    apiStatus === "online"
+      ? "var(--green)"
+      : apiStatus === "offline"
+        ? "var(--red)"
+        : "var(--comment)";
+  const dotText =
+    apiStatus === "online" ? "online" : apiStatus === "offline" ? "offline" : "unknown";
+
   return (
     <aside className="explorer-rail" aria-label="Site navigation">
       <div className="rail-label">buffers</div>
@@ -33,7 +68,14 @@ export function ExplorerRail({ currentPath }: { currentPath: string }) {
       <div className="rail-divider" />
       <div className="rail-label">session</div>
       <div className="rail-meta">
-        <span className="status-dot" /> <span>online</span>
+        <span
+          className="status-dot"
+          style={{
+            background: dotColor,
+            boxShadow: `0 0 0 3px color-mix(in srgb, ${dotColor} 12%, transparent)`,
+          }}
+        />
+        <span style={{ color: dotColor }}>{dotText}</span>
       </div>
       <div className="rail-meta muted">
         <Keyboard size={13} /> <span>⌘K commands</span>
