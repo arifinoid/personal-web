@@ -43,9 +43,9 @@ export default function About() {
         </div>
         <div className="about-copy">
           <p>
-            I’m a <strong>fullstack software engineer with 7+ years</strong> in designing,
-            developing, and launching scalable systems. My work sits between product engineering and
-            platform thinking: optimizing processes, reducing development cycles, and delivering
+            I’m a <strong>seasoned fullstack software engineer</strong> in designing, developing,
+            and launching scalable systems. My work sits between product engineering and platform
+            thinking: optimizing processes, reducing development cycles, and delivering
             cross-platform solutions from concept to execution.
           </p>
           <p>

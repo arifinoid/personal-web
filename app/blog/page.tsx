@@ -9,7 +9,7 @@ const notes = [
     date: "2026",
     title: "Why I blog (again)",
     excerpt:
-      "Notes from seven years of shipping — what worked, what broke, and the quiet art of building tools people want to use twice.",
+      "Notes from seasoned shipping — what worked, what broke, and the quiet art of building tools people want to use twice.",
     read: "coming soon",
     tag: "meta",
   },

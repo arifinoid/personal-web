@@ -12,6 +12,7 @@ const commands = [
   ":e /about",
   ":theme day",
   ":theme moon",
+  ":ask",
   ":help",
 ];
 

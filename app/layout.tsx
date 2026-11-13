@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   metadataBase: siteUrl,
   title: "Rohmad Arifin — Fullstack Software Engineer",
   description:
-    "Rohmad Arifin (arifinoid) — fullstack software engineer with 7+ years building scalable systems, developer tools, and cross-platform solutions.",
+    "Rohmad Arifin (arifinoid) — seasoned fullstack software engineer building scalable systems, developer tools, and cross-platform solutions.",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "64x64 32x24 16", type: "image/x-icon" },
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Rohmad Arifin — Fullstack Software Engineer",
     description:
-      "Fullstack software engineer with 7+ years building scalable systems, developer tools, and cross-platform solutions.",
+      "Seasoned fullstack software engineer building scalable systems, developer tools, and cross-platform solutions.",
     type: "website",
     url: "/",
   },

@@ -1,6 +1,6 @@
+import { ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Braces, Cpu, GitBranch, Sparkles } from "lucide-react";
 
 export const metadata: Metadata = { alternates: { canonical: "/" } };
 
@@ -18,10 +18,10 @@ export default function Home() {
             <em>ship loudly.</em>
           </h1>
           <p className="page-intro">
-            I’m <strong>Rohmad Arifin</strong> — a fullstack software engineer with 7+ years
-            designing, developing, and launching <strong>scalable systems</strong>. I optimize
-            processes, cut development cycles, and deliver cross-platform solutions from concept to
-            execution.
+            I’m <strong>Rohmad Arifin</strong> — Seasoned fullstack software engineer with
+            experience building and optimizing enterprise applications, developer platforms, and
+            cross platform solutions. I optimize processes, cut development cycles, and deliver
+            cross-platform solutions from concept to execution.
           </p>
           <div className="hero-cta-row">
             <Link className="button-primary" href="/projects">
@@ -86,84 +86,6 @@ export default function Home() {
               </span>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className="section-block">
-        <div className="section-heading">
-          <h2>at a glance</h2>
-          <Link href="/about">read the context →</Link>
-        </div>
-        <div className="stat-grid">
-          <div className="stat-cell">
-            <span className="stat-number">07</span>
-            <span className="stat-label">years shipping software</span>
-          </div>
-          <div className="stat-cell">
-            <span className="stat-number">06</span>
-            <span className="stat-label">companies, jakarta to bandung</span>
-          </div>
-          <div className="stat-cell">
-            <span className="stat-number">∞</span>
-            <span className="stat-label">curiosity remaining</span>
-          </div>
-        </div>
-      </section>
-
-      <section className="section-block">
-        <div className="section-heading">
-          <h2>what I reach for</h2>
-          <Link href="/explore">explore the experience →</Link>
-        </div>
-        <div className="feature-grid">
-          <article className="feature-card">
-            <Cpu className="feature-card-icon" size={18} />
-            <div>
-              <h3>systems that scale</h3>
-              <p>
-                Payment switching platforms handling 27M records a day, micro-frontend dashboards,
-                and 99.99% SLA reliability.
-              </p>
-            </div>
-          </article>
-          <article className="feature-card">
-            <Braces className="feature-card-icon" size={18} />
-            <div>
-              <h3>developer experience first</h3>
-              <p>
-                Internal tools, unified login systems, JS SDKs, and Nix-based environments that make
-                teams faster.
-              </p>
-            </div>
-          </article>
-          <article className="feature-card">
-            <Sparkles className="feature-card-icon" size={18} />
-            <div>
-              <h3>fullstack range</h3>
-              <p>
-                TypeScript, React, Next.js, Node, Go, Python, Java — web, mobile, cloud, and no-code
-                platforms.
-              </p>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section className="section-block">
-        <div className="section-heading">
-          <h2>now playing</h2>
-          <span className="tag">2026 / q3</span>
-        </div>
-        <div className="panel panel-row">
-          <div>
-            <div className="panel-label">CURRENTLY BUILDING</div>
-            <div className="panel-headline">payment switching platforms at alto network</div>
-            <p className="timeline-copy panel-copy">
-              Leading 11 engineers on Scrum, building internal platforms for Indonesia's payment
-              switching infrastructure on Java Spring Boot, React, and PostgreSQL.
-            </p>
-          </div>
-          <GitBranch className="panel-accent-icon" size={21} />
         </div>
       </section>
     </div>
