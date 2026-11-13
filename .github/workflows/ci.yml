@@ -24,7 +24,6 @@ jobs:
           bun-version: 1.4.2
 
       - run: bun install --frozen-lockfile
-
       - run: bunx next typegen
       - run: bun run typecheck
       - run: bun run lint
@@ -37,28 +36,28 @@ jobs:
           path: out
           retention-days: 1
 
-  deploy:
-    needs: verify
-    if: github.event_name != 'pull_request'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      # wrangler-action detects bun from bun.lock and shells out to it.
-      - uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: 1.4.2
-
-      - uses: actions/download-artifact@v4
-        with:
-          name: out
-          path: out
-
-      - uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy out --project-name=arifinoid --branch=master --commit-dirty=true
+  # deploy:
+  #   needs: verify
+  #   if: github.event_name != 'pull_request'
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #
+  #     # wrangler-action detects bun from bun.lock and shells out to it.
+  #     - uses: oven-sh/setup-bun@v2
+  #       with:
+  #         bun-version: 1.4.2
+  #
+  #     - uses: actions/download-artifact@v4
+  #       with:
+  #         name: out
+  #         path: out
+  #
+  #     - uses: cloudflare/wrangler-action@v3
+  #       with:
+  #         apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+  #         accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+  #         command: pages deploy out --project-name=arifinoid --branch=master --commit-dirty=true
 
   deploy-vps:
     needs: verify
