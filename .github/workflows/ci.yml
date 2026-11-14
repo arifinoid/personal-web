@@ -28,6 +28,7 @@ jobs:
       - run: bun run typecheck
       - run: bun run lint
       - run: bun run format:check
+      - run: bun run test
       - run: bun run build
 
       - uses: actions/upload-artifact@v4
