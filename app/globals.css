@@ -194,8 +194,9 @@ input:focus-visible {
 
 .workspace {
   display: grid;
-  grid-template-columns: 188px minmax(0, 1fr);
+  grid-template-columns: 188px minmax(0, 1fr) 0px;
   min-height: calc(100vh - 46px);
+  transition: grid-template-columns 0.22s var(--ease-out);
 }
 .explorer-rail {
   border-right: 1px solid var(--border);
@@ -204,7 +205,39 @@ input:focus-visible {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  transition: all 0.22s var(--ease-out);
 }
+.workspace[data-ask-open] {
+  grid-template-columns: 60px minmax(0, 1fr) 360px;
+}
+.workspace[data-ask-open] .explorer-rail {
+  padding: 20px 8px 16px;
+}
+.workspace[data-ask-open] .explorer-rail .rail-label,
+.workspace[data-ask-open] .explorer-rail .rail-divider,
+.workspace[data-ask-open] .explorer-rail .rail-meta,
+.workspace[data-ask-open] .explorer-rail .rail-socials {
+  display: none;
+}
+.workspace[data-ask-open] .explorer-rail .rail-nav span,
+.workspace[data-ask-open] .explorer-rail .rail-item span {
+  display: none;
+}
+.workspace[data-ask-open] .explorer-rail .rail-item {
+  justify-content: center;
+  padding: 10px 6px;
+  gap: 0;
+}
+.workspace[data-ask-open] .explorer-rail .rail-item.active {
+  background: transparent;
+}
+.workspace[data-ask-open] .explorer-rail .rail-item.active svg {
+  color: var(--purple);
+}
+.workspace[data-ask-open] .explorer-rail .rail-item:hover {
+  background: var(--secondary);
+}
+
 .rail-brand {
   display: flex;
   align-items: center;
@@ -345,13 +378,6 @@ input:focus-visible {
   overflow: hidden;
 }
 /* ask rail — right sidebar, collapses to 0 width when closed */
-.workspace {
-  grid-template-columns: 188px minmax(0, 1fr) 0px;
-  transition: grid-template-columns 0.22s var(--ease-out);
-}
-.workspace[data-ask-open] {
-  grid-template-columns: 188px minmax(0, 1fr) 360px;
-}
 .ask-rail {
   border-left: 1px solid var(--border);
   background: var(--sidebar);
