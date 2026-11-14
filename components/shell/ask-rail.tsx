@@ -3,10 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowRight, Send, X } from "lucide-react";
 
-const ASK_API_URL =
-  typeof process !== "undefined" && process.env.NEXT_PUBLIC_ASK_API_URL
-    ? process.env.NEXT_PUBLIC_ASK_API_URL
-    : "http://localhost:8080";
+import { ASK_API_URL } from "@/lib/ask-api";
 
 interface Message {
   role: "user" | "assistant";

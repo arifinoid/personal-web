@@ -6,12 +6,8 @@ import { Keyboard } from "lucide-react";
 
 import { GithubIcon, LinkedinIcon } from "@/components/brand-icons";
 import { navItems } from "@/components/shell/nav";
+import { ASK_API_URL } from "@/lib/ask-api";
 import { site } from "@/lib/site";
-
-const ASK_API_URL =
-  typeof process !== "undefined" && process.env.NEXT_PUBLIC_ASK_API_URL
-    ? process.env.NEXT_PUBLIC_ASK_API_URL
-    : "http://localhost:8080";
 
 export function ExplorerRail({ currentPath }: { currentPath: string }) {
   const [apiStatus, setApiStatus] = useState<"online" | "offline" | "unknown">("unknown");
