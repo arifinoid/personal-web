@@ -2,18 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight, Bookmark, Clock3 } from "lucide-react";
 
-export const metadata: Metadata = { alternates: { canonical: "/blog/" } };
+import { blogPosts } from "@/lib/blog";
 
-const notes = [
-  {
-    date: "2026",
-    title: "Why I blog (again)",
-    excerpt:
-      "Notes from seasoned shipping — what worked, what broke, and the quiet art of building tools people want to use twice.",
-    read: "coming soon",
-    tag: "meta",
-  },
-];
+export const metadata: Metadata = { alternates: { canonical: "/blog/" } };
 
 export default function Blog() {
   return (
@@ -33,21 +24,25 @@ export default function Blog() {
         </p>
       </div>
       <div className="blog-list">
-        {notes.map((note) => (
-          <article className="blog-item" key={note.title}>
+        {blogPosts.map((note) => (
+          <article className="blog-item" key={note.slug}>
             <div className="blog-date">{note.date}</div>
             <div>
               <h2 className="blog-title">{note.title}</h2>
               <p className="blog-excerpt">{note.excerpt}</p>
               <div className="project-meta">
-                <span className="tag">{note.tag}</span>
+                {note.tags.map((tag) => (
+                  <span className="tag" key={tag}>
+                    {tag}
+                  </span>
+                ))}
                 <span>
                   <Clock3 size={11} strokeWidth={1.5} absoluteStrokeWidth className="icon-inline" />
                   {note.read}
                 </span>
               </div>
             </div>
-            <Link className="blog-arrow" href="/about" aria-label={`Read ${note.title}`}>
+            <Link className="blog-arrow" href={note.href} aria-label={`Read ${note.title}`}>
               <ArrowUpRight size={16} strokeWidth={2} absoluteStrokeWidth />
             </Link>
           </article>
