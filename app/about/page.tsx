@@ -61,21 +61,21 @@ export default function About() {
           </p>
           <div className="contact-line">
             <a href={`mailto:${site.email}`}>
-              <AtSign size={13} className="icon-inline" />
+              <AtSign size={13} strokeWidth={1.5} absoluteStrokeWidth className="icon-inline" />
               {site.email}
             </a>
             <span>
-              <MapPin size={13} className="icon-inline" />
+              <MapPin size={13} strokeWidth={1.5} absoluteStrokeWidth className="icon-inline" />
               kediri / remote
             </span>
             <span>
-              <Coffee size={13} className="icon-inline" />
+              <Coffee size={13} strokeWidth={1.5} absoluteStrokeWidth className="icon-inline" />
               always brewing
             </span>
           </div>
           <div className="contact-socials">
             <a className="button-primary" href={`mailto:${site.email}`}>
-              start a conversation <ArrowUpRight size={14} />
+              start a conversation <ArrowUpRight size={14} strokeWidth={2} absoluteStrokeWidth />
             </a>
             <a
               className="button-ghost"
@@ -83,7 +83,7 @@ export default function About() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              github.com/arifinoid <ArrowUpRight size={13} />
+              github.com/arifinoid <ArrowUpRight size={13} strokeWidth={2} absoluteStrokeWidth />
             </a>
             <a
               className="button-ghost"
@@ -91,7 +91,7 @@ export default function About() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              linkedin/rohmadarifin <ArrowUpRight size={13} />
+              linkedin/rohmadarifin <ArrowUpRight size={13} strokeWidth={2} absoluteStrokeWidth />
             </a>
           </div>
         </div>

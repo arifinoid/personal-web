@@ -89,6 +89,10 @@ button,
 input {
   font: inherit;
 }
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
 a {
   color: inherit;
   text-decoration: none;
@@ -187,9 +191,11 @@ input:focus-visible {
     color 0.15s ease,
     transform 0.15s ease;
 }
-.search-trigger:hover {
-  color: var(--cyan);
-  transform: translateY(-1px);
+@media (hover: hover) {
+  .search-trigger:hover {
+    color: var(--cyan);
+    transform: translateY(-1px);
+  }
 }
 
 .workspace {
@@ -205,7 +211,7 @@ input:focus-visible {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  transition: all 0.22s var(--ease-out);
+  transition: padding 0.22s var(--ease-out);
 }
 .workspace[data-ask-open] {
   grid-template-columns: 60px minmax(0, 1fr) 360px;
@@ -234,8 +240,10 @@ input:focus-visible {
 .workspace[data-ask-open] .explorer-rail .rail-item.active svg {
   color: var(--purple);
 }
-.workspace[data-ask-open] .explorer-rail .rail-item:hover {
-  background: var(--secondary);
+@media (hover: hover) {
+  .workspace[data-ask-open] .explorer-rail .rail-item:hover {
+    background: var(--secondary);
+  }
 }
 
 .rail-brand {
@@ -276,10 +284,12 @@ input:focus-visible {
     color 0.15s ease,
     transform 0.15s ease;
 }
-.rail-item:hover {
-  background: var(--secondary);
-  color: var(--foreground);
-  transform: translateX(2px);
+@media (hover: hover) {
+  .rail-item:hover {
+    background: var(--secondary);
+    color: var(--foreground);
+    transform: translateX(2px);
+  }
 }
 .rail-item.active {
   background: color-mix(in srgb, var(--purple) 11%, transparent);
@@ -323,9 +333,11 @@ input:focus-visible {
     color 0.15s ease,
     transform 0.15s ease;
 }
-.rail-socials a:hover {
-  color: var(--cyan);
-  transform: translateY(-2px);
+@media (hover: hover) {
+  .rail-socials a:hover {
+    color: var(--cyan);
+    transform: translateY(-2px);
+  }
 }
 
 .editor-pane {
@@ -413,13 +425,16 @@ input:focus-visible {
     background-color 0.15s ease,
     color 0.15s ease;
 }
-.rail-close:hover {
-  background: var(--secondary);
-  color: var(--foreground);
+@media (hover: hover) {
+  .rail-close:hover {
+    background: var(--secondary);
+    color: var(--foreground);
+  }
 }
 .ask-messages {
   flex: 1;
   overflow-y: auto;
+  overscroll-behavior: contain;
   padding: 10px 12px;
   display: flex;
   flex-direction: column;
@@ -537,8 +552,10 @@ input:focus-visible {
   cursor: pointer;
   transition: background-color 0.15s ease;
 }
-.ask-send:not(:disabled):hover {
-  background: color-mix(in srgb, var(--cyan) 20%, transparent);
+@media (hover: hover) {
+  .ask-send:not(:disabled):hover {
+    background: color-mix(in srgb, var(--cyan) 20%, transparent);
+  }
 }
 .ask-send:disabled {
   opacity: 0.5;
@@ -590,10 +607,12 @@ input:focus-visible {
     border-color 0.15s ease,
     color 0.15s ease;
 }
-.ask-template:hover {
-  background: var(--secondary);
-  color: var(--foreground);
-  border-color: var(--ring);
+@media (hover: hover) {
+  .ask-template:hover {
+    background: var(--secondary);
+    color: var(--foreground);
+    border-color: var(--ring);
+  }
 }
 .ask-template:focus-visible {
   outline: 2px solid var(--ring);
@@ -604,16 +623,18 @@ input:focus-visible {
   max-width: 1040px;
   margin: 0 auto;
   padding: 40px clamp(20px, 6vw, 64px) 60px;
-  animation: page-in 0.42s var(--ease-out) both;
+  animation: page-in 0.3s ease-out both;
 }
 @keyframes page-in {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(12px);
+    filter: blur(4px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
+    filter: blur(0);
   }
 }
 .page-kicker {
@@ -675,33 +696,38 @@ input:focus-visible {
   border-radius: 4px;
   font: 500 11px var(--font-mono);
   transition:
-    transform 0.16s var(--ease-out),
-    background-color 0.16s ease,
-    color 0.16s ease,
-    border-color 0.16s ease;
+    transform 0.15s var(--ease-out),
+    scale 0.15s ease-out,
+    background-color 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease;
 }
 .button-primary {
   background: var(--cyan);
   color: var(--primary-foreground);
 }
-.button-primary:hover {
-  transform: translateY(-2px);
-  background: color-mix(in srgb, var(--cyan) 84%, white);
+@media (hover: hover) {
+  .button-primary:hover {
+    transform: translateY(-2px);
+    background: color-mix(in srgb, var(--cyan) 84%, white);
+  }
 }
 .button-ghost {
   border: 1px solid var(--border);
   color: var(--foreground);
 }
-.button-ghost:hover {
-  transform: translateY(-2px);
-  border-color: var(--purple);
-  color: var(--purple);
-  background: color-mix(in srgb, var(--purple) 7%, transparent);
+@media (hover: hover) {
+  .button-ghost:hover {
+    transform: translateY(-2px);
+    border-color: var(--purple);
+    color: var(--purple);
+    background: color-mix(in srgb, var(--purple) 7%, transparent);
+  }
 }
-.button-primary:active,
-.button-ghost:active,
-.theme-toggle:active {
-  transform: scale(0.97);
+.button-primary:not(:disabled):active,
+.button-ghost:not(:disabled):active,
+.theme-toggle:not(:disabled):active {
+  scale: 0.96;
 }
 
 .code-card {
@@ -815,8 +841,10 @@ input:focus-visible {
   color: var(--cyan);
   font: 400 10px var(--font-mono);
 }
-.section-heading a:hover {
-  text-decoration: underline;
+@media (hover: hover) {
+  .section-heading a:hover {
+    text-decoration: underline;
+  }
 }
 .stat-grid {
   display: grid;
@@ -851,12 +879,14 @@ input:focus-visible {
   border-radius: 6px;
   padding: 17px;
   transition:
-    transform 0.18s var(--ease-out),
-    border-color 0.18s ease;
+    transform 0.15s var(--ease-out),
+    border-color 0.15s ease;
 }
-.feature-card:hover {
-  transform: translateY(-3px);
-  border-color: var(--purple);
+@media (hover: hover) {
+  .feature-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--purple);
+  }
 }
 .feature-card-icon {
   color: var(--purple);
@@ -1065,14 +1095,16 @@ input:focus-visible {
   padding: 20px;
   border-radius: 6px;
   transition:
-    transform 0.18s var(--ease-out),
-    border-color 0.18s ease,
-    background-color 0.18s ease;
+    transform 0.15s var(--ease-out),
+    border-color 0.15s ease,
+    background-color 0.15s ease;
 }
-.project-row:hover {
-  transform: translateX(4px);
-  border-color: var(--cyan);
-  background: color-mix(in srgb, var(--cyan) 4%, var(--card));
+@media (hover: hover) {
+  .project-row:hover {
+    transform: translateX(4px);
+    border-color: var(--cyan);
+    background: color-mix(in srgb, var(--cyan) 4%, var(--card));
+  }
 }
 .project-title {
   display: flex;
@@ -1106,9 +1138,11 @@ input:focus-visible {
     color 0.15s ease,
     transform 0.15s ease;
 }
-.project-row:hover .project-arrow {
-  color: var(--cyan);
-  transform: translate(3px, -3px);
+@media (hover: hover) {
+  .project-row:hover .project-arrow {
+    color: var(--cyan);
+    transform: translate(3px, -3px);
+  }
 }
 
 .blog-list {
@@ -1123,10 +1157,12 @@ input:focus-visible {
   align-items: start;
   padding: 19px 0;
   border-bottom: 1px solid var(--border);
-  transition: padding 0.18s var(--ease-out);
+  transition: background-color 0.15s ease-out;
 }
-.blog-item:hover {
-  padding-left: 8px;
+@media (hover: hover) {
+  .blog-item:hover {
+    background-color: color-mix(in srgb, var(--purple) 5%, transparent);
+  }
 }
 .blog-date {
   color: var(--comment);
@@ -1150,8 +1186,10 @@ input:focus-visible {
   color: var(--purple);
   padding-top: 3px;
 }
-.blog-item:hover .blog-arrow {
-  color: var(--cyan);
+@media (hover: hover) {
+  .blog-item:hover .blog-arrow {
+    color: var(--cyan);
+  }
 }
 
 .about-grid {
@@ -1216,8 +1254,10 @@ input:focus-visible {
   font: 400 10px var(--font-mono);
   color: var(--cyan);
 }
-.contact-line a:hover {
-  text-decoration: underline;
+@media (hover: hover) {
+  .contact-line a:hover {
+    text-decoration: underline;
+  }
 }
 
 .command-status {
@@ -1271,10 +1311,47 @@ input:focus-visible {
   background: transparent;
   color: var(--muted-foreground);
   font: 400 10px var(--font-mono);
-  transition: color 0.15s ease;
+  transition:
+    color 0.15s ease,
+    scale 0.15s ease-out;
 }
-.theme-toggle:hover {
-  color: var(--cyan);
+@media (hover: hover) {
+  .theme-toggle:hover {
+    color: var(--cyan);
+  }
+}
+.theme-icon {
+  display: grid;
+  place-items: center;
+}
+.theme-icon-item {
+  grid-area: 1 / 1;
+  display: grid;
+  place-items: center;
+  transition:
+    opacity 300ms cubic-bezier(0.2, 0, 0, 1),
+    scale 300ms cubic-bezier(0.2, 0, 0, 1),
+    filter 300ms cubic-bezier(0.2, 0, 0, 1);
+}
+.theme-icon-item-hidden {
+  scale: 0.25;
+  opacity: 0;
+  filter: blur(4px);
+}
+.theme-icon-item-shown {
+  scale: 1;
+  opacity: 1;
+  filter: blur(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .theme-icon-item {
+    transition-property: opacity;
+    transition-duration: 150ms !important;
+  }
+  .theme-icon-item-hidden {
+    scale: 1;
+    filter: blur(0);
+  }
 }
 .status-line {
   display: flex;
@@ -1354,7 +1431,7 @@ input:focus-visible {
   background: var(--card);
   box-shadow: 0 25px 70px #0008;
   overflow: hidden;
-  animation: palette-in 0.18s var(--ease-out) both;
+  animation: palette-in 0.3s ease-out both;
 }
 .palette-head {
   display: flex;
@@ -1402,9 +1479,11 @@ input:focus-visible {
   font: 400 11px var(--font-mono);
   border-radius: 4px;
 }
-.palette-list button:hover {
-  color: var(--foreground);
-  background: var(--secondary);
+@media (hover: hover) {
+  .palette-list button:hover {
+    color: var(--foreground);
+    background: var(--secondary);
+  }
 }
 .palette-foot {
   display: flex;
@@ -1428,11 +1507,13 @@ input:focus-visible {
 @keyframes palette-in {
   from {
     opacity: 0;
-    transform: translateY(-8px) scale(0.98);
+    transform: translateY(-12px);
+    filter: blur(4px);
   }
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
+    filter: blur(0);
   }
 }
 

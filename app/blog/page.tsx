@@ -42,13 +42,13 @@ export default function Blog() {
               <div className="project-meta">
                 <span className="tag">{note.tag}</span>
                 <span>
-                  <Clock3 size={11} className="icon-inline" />
+                  <Clock3 size={11} strokeWidth={1.5} absoluteStrokeWidth className="icon-inline" />
                   {note.read}
                 </span>
               </div>
             </div>
             <Link className="blog-arrow" href="/about" aria-label={`Read ${note.title}`}>
-              <ArrowUpRight size={16} />
+              <ArrowUpRight size={16} strokeWidth={2} absoluteStrokeWidth />
             </Link>
           </article>
         ))}
