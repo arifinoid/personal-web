@@ -142,7 +142,22 @@ export function CommandBar({
           onClick={() => setTheme(theme === "moon" ? "day" : "moon")}
           aria-label={`Switch to ${theme === "moon" ? "day" : "moon"} theme`}
         >
-          {theme === "moon" ? <Sun size={15} /> : <Moon size={15} />}
+          <span className="theme-icon" aria-hidden="true">
+            <span
+              className={`theme-icon-item ${
+                theme === "moon" ? "theme-icon-item-shown" : "theme-icon-item-hidden"
+              }`}
+            >
+              <Sun size={15} />
+            </span>
+            <span
+              className={`theme-icon-item ${
+                theme === "moon" ? "theme-icon-item-hidden" : "theme-icon-item-shown"
+              }`}
+            >
+              <Moon size={15} />
+            </span>
+          </span>
           <span>{theme === "moon" ? "day" : "moon"}</span>
         </button>
       </div>

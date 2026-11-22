@@ -2,9 +2,15 @@ import type { SVGProps } from "react";
 
 type BrandIconProps = SVGProps<SVGSVGElement> & {
   size?: number | string;
+  absoluteStrokeWidth?: boolean;
 };
 
-function GithubIcon({ size = 24, ...props }: BrandIconProps) {
+function GithubIcon({
+  size = 24,
+  strokeWidth = 2,
+  absoluteStrokeWidth = false,
+  ...props
+}: BrandIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -13,9 +19,10 @@ function GithubIcon({ size = 24, ...props }: BrandIconProps) {
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth={2}
+      strokeWidth={strokeWidth}
       strokeLinecap="round"
       strokeLinejoin="round"
+      vectorEffect={absoluteStrokeWidth ? "non-scaling-stroke" : undefined}
       aria-hidden="true"
       {...props}
     >
@@ -25,7 +32,12 @@ function GithubIcon({ size = 24, ...props }: BrandIconProps) {
   );
 }
 
-function LinkedinIcon({ size = 24, ...props }: BrandIconProps) {
+function LinkedinIcon({
+  size = 24,
+  strokeWidth = 2,
+  absoluteStrokeWidth = false,
+  ...props
+}: BrandIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -34,9 +46,10 @@ function LinkedinIcon({ size = 24, ...props }: BrandIconProps) {
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth={2}
+      strokeWidth={strokeWidth}
       strokeLinecap="round"
       strokeLinejoin="round"
+      vectorEffect={absoluteStrokeWidth ? "non-scaling-stroke" : undefined}
       aria-hidden="true"
       {...props}
     >

@@ -105,23 +105,25 @@ export default function Explore() {
             <div className="panel-label">03 / TOOLBOX</div>
             <div className="tag-row tag-row-gap">
               <span className="tag">
-                <Brackets size={12} /> typescript / react / next.js
+                <Brackets size={12} strokeWidth={1.5} absoluteStrokeWidth /> typescript / react /
+                next.js
               </span>
               <span className="tag">
-                <Waypoints size={12} /> node / go / python
+                <Waypoints size={12} strokeWidth={1.5} absoluteStrokeWidth /> node / go / python
               </span>
               <span className="tag">
-                <Radio size={12} /> postgresql / sql / nosql
+                <Radio size={12} strokeWidth={1.5} absoluteStrokeWidth /> postgresql / sql / nosql
               </span>
               <span className="tag">
-                <MousePointer2 size={12} /> react native / flutter
+                <MousePointer2 size={12} strokeWidth={1.5} absoluteStrokeWidth /> react native /
+                flutter
               </span>
               <span className="tag">
-                <Eye size={12} /> kubernetes / azure / graphql
+                <Eye size={12} strokeWidth={1.5} absoluteStrokeWidth /> kubernetes / azure / graphql
               </span>
             </div>
             <Link className="button-ghost panel-cta" href="/projects">
-              see it in practice <ArrowUpRight size={14} />
+              see it in practice <ArrowUpRight size={14} strokeWidth={2} absoluteStrokeWidth />
             </Link>
           </section>
         </div>

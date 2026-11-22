@@ -25,7 +25,7 @@ export default function Home() {
           </p>
           <div className="hero-cta-row">
             <Link className="button-primary" href="/projects">
-              open projects <ArrowRight size={14} />
+              open projects <ArrowRight size={14} strokeWidth={2} absoluteStrokeWidth />
             </Link>
             <Link className="button-ghost" href="/about">
               :about me

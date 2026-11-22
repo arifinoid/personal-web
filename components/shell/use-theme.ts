@@ -5,6 +5,7 @@ import { useCallback, useEffect, useState } from "react";
 import type { ThemeMode } from "@/components/shell/types";
 
 const STORAGE_KEY = "theme";
+const TRANSITION_SUPPRESSOR = "*,*::before,*::after{transition:none !important}";
 
 function getStoredTheme(): ThemeMode | null {
   const value = window.localStorage.getItem(STORAGE_KEY);
@@ -22,16 +23,29 @@ export function useTheme() {
   useEffect(() => {
     const stored = getStoredTheme();
     if (stored && stored !== document.documentElement.dataset.theme) {
-      document.documentElement.dataset.theme = stored;
+      applyTheme(stored);
       setThemeState(stored);
     }
   }, []);
 
   const setTheme = useCallback((value: ThemeMode) => {
-    document.documentElement.dataset.theme = value;
+    applyTheme(value);
     window.localStorage.setItem(STORAGE_KEY, value);
     setThemeState(value);
   }, []);
 
   return [theme, setTheme] as const;
+}
+
+// Disable transitions while the theme flips, otherwise every color transition
+// fires at once and the switch smears.
+function applyTheme(value: ThemeMode) {
+  const style = document.createElement("style");
+  style.append(document.createTextNode(TRANSITION_SUPPRESSOR));
+  document.head.append(style);
+  document.documentElement.dataset.theme = value;
+  void document.body.offsetHeight; // force a synchronous style flush
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => style.remove());
+  });
 }

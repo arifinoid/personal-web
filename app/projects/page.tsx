@@ -75,7 +75,7 @@ export default function Projects() {
             <article className="project-row" key={project.title}>
               <div>
                 <h2 className="project-title">
-                  <Icon size={17} strokeWidth={1.7} />
+                  <Icon size={17} strokeWidth={2.5} absoluteStrokeWidth />
                   {project.title}
                 </h2>
                 <p className="project-description">{project.description}</p>
@@ -97,7 +97,7 @@ export default function Projects() {
                 href="/about"
                 aria-label={`Ask about ${project.title}`}
               >
-                <ArrowUpRight size={17} />
+                <ArrowUpRight size={17} strokeWidth={2} absoluteStrokeWidth />
               </Link>
             </article>
           );
@@ -109,7 +109,7 @@ export default function Projects() {
           adventure.
         </span>
         <a className="button-ghost" href={site.github} target="_blank" rel="noopener noreferrer">
-          github.com/arifinoid <GithubIcon size={13} />
+          github.com/arifinoid <GithubIcon size={13} strokeWidth={2} absoluteStrokeWidth />
         </a>
       </div>
     </div>

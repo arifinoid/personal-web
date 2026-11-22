@@ -54,7 +54,7 @@ export function ExplorerRail({ currentPath }: { currentPath: string }) {
               key={item.href}
               title={`Open ${item.label}`}
             >
-              <Icon size={16} strokeWidth={1.8} />
+              <Icon size={16} strokeWidth={1.5} absoluteStrokeWidth />
               <span>{item.label}</span>
               {active && <span className="rail-cursor" />}
             </Link>

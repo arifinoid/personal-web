@@ -22,14 +22,19 @@ export default function NotFound() {
       </div>
       <div className="panel panel-row">
         <div className="panel-icon-row">
-          <CircleAlert size={22} className="icon-accent-red" />
+          <CircleAlert
+            size={22}
+            strokeWidth={2.5}
+            absoluteStrokeWidth
+            className="icon-accent-red"
+          />
           <div>
             <div className="panel-headline panel-headline-lg">404 — Page Not Found</div>
             <p className="timeline-copy panel-copy">E486: Pattern not found in this workspace.</p>
           </div>
         </div>
         <Link className="button-primary" href="/">
-          <House size={14} /> go home
+          <House size={14} strokeWidth={2} absoluteStrokeWidth /> go home
         </Link>
       </div>
     </div>
